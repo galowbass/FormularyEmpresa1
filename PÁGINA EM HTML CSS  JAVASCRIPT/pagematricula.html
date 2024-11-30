@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrícula do Aluno</title>
+  <style>
+    body {
+      background-color: #666666;
+      font-family: Arial, sans-serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #3498db;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #3498db;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Matricular Aluno</h1>
+    <form action="#" method="POST">
+      <input type="text" name="nome" placeholder="Nome completo" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="tel" name="telefone" placeholder="Telefone" required>
+      <select name="curso" id="curso" required>
+        <option value="" disabled selected>Selecione o curso</option>
+        <option value="1">EAD</option>
+        <option value="2">Presencial</option>
+      </select>
+      <select name="turma" id="turma" required>
+        <option value="" disabled selected>Selecione a turma</option>
+      </select>
+      <button type="submit">Matricular</button>
+    </form>
+  </div>
+
+  <script>
+    // Dados simulados de turmas
+    const turmas = {
+      1: [
+        { id: 1, descricao: "Administração" },
+        { id: 2, descricao: "Ciências Contábeis" },
+        { id: 3, descricao: "Gestão Financeira" }
+      ],
+      2: [
+        { id: 4, descricao: "Ciências Contábeis Executivo: Formação para Graduados" },
+        
+      ]
+    };
+
+    const cursoSelect = document.getElementById("curso");
+    const turmaSelect = document.getElementById("turma");
+
+    cursoSelect.addEventListener("change", () => {
+      const cursoId = cursoSelect.value;
+
+      // Limpa as opções de turma
+      turmaSelect.innerHTML = '<option value="" disabled selected>Selecione a turma</option>';
+
+      // Adiciona turmas relacionadas ao curso selecionado
+      if (turmas[cursoId]) {
+        turmas[cursoId].forEach(turma => {
+          const option = document.createElement("option");
+          option.value = turma.id;
+          option.textContent = turma.descricao;
+          turmaSelect.appendChild(option);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

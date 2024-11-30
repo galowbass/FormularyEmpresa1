@@ -1,0 +1,40 @@
+
+USE Empresa1;
+
+-- Tabela de Cursos
+CREATE TABLE Cursos (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Descricao NVARCHAR(255) NOT NULL
+);
+
+-- Tabela de Turmas
+CREATE TABLE Turmas (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Descricao NVARCHAR(255) NOT NULL,
+    CursoId INT NOT NULL,
+    CONSTRAINT FK_Turmas_Cursos FOREIGN KEY (CursoId) REFERENCES Cursos(Id) ON DELETE CASCADE
+);
+
+-- Tabela de Leads
+CREATE TABLE Leads (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nome NVARCHAR(255) NOT NULL,
+    Telefone NVARCHAR(20) NOT NULL,
+    Email NVARCHAR(255) NOT NULL,
+    CursoInteresse INT NOT NULL,
+    CONSTRAINT FK_Leads_Cursos FOREIGN KEY (CursoInteresse) REFERENCES Cursos(Id) ON DELETE CASCADE
+);
+
+-- Tabela de Alunos
+CREATE TABLE Alunos (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    CodigoMatricula INT NOT NULL UNIQUE,
+    Nome NVARCHAR(255) NOT NULL,
+    Telefone NVARCHAR(20) NOT NULL,
+    Email NVARCHAR(255) NOT NULL,
+    CursoId INT NOT NULL,
+    TurmaId INT NOT NULL,
+    DataCadastro DATETIME NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT FK_Alunos_Cursos FOREIGN KEY (CursoId) REFERENCES Cursos(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_Alunos_Turmas FOREIGN KEY (TurmaId) REFERENCES Turmas(Id) ON DELETE CASCADE
+);

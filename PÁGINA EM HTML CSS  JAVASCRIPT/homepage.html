@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page - Conteúdo Exclusivo</title>
+  <style>
+    /* Estilo da página */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #666666;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .privacy-text {
+      font-size: 0.85rem;
+      color: #bdc3c7;
+      margin-top: 20px;
+    }
+
+    .highlight {
+      color: #3498db;
+      font-weight: bold;
+    }
+
+    .link {
+      margin-top: 15px;
+      display: inline-block;
+      font-size: 1rem;
+      color: #3498db;
+      text-decoration: none;
+      border: 1px solid #3498db;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+
+    .link:hover {
+      background-color: #3498db;
+      color: #fff;
+    }
+  </style>
+</head>
+
+    <!-- Página do Formulário de Leads-->>
+<body>
+  <div class="container">
+    <h1>Acesse ao Conteúdo</h1>
+    <p>Preencha o formulário abaixo para obter acesso a <span class="highlight">os nossos cursos</span>.</p>
+    <form action="#" method="POST">
+      <input type="text" name="name" placeholder="Seu nome completo" required>
+      <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+      <select name="interest" required>
+        <option value="" disabled selected>Selecione seu interesse...</option>
+        <option value="Graduação">Graduação</option>
+        <option value="MBA e Pós-Graduação">MBA e Pós-Graduação</option>
+        <option value="Mestrado">Mestrado</option>
+        <option value="Educação Executiva">Educação Executiva</option>
+        <option value="Educação Corporativa">Educação Corporativa</option>
+        <option value="Projetos e pesquisas">Projetos e pesquisas</option>
+      </select>
+      <button type="submit">Quero Acessar!</button>
+    </form>
+    <p class="privacy-text">Garantimos a proteção dos seus dados e nunca enviaremos spam. Leia nossa <a href="#" style="color: #3498db;">política de privacidade</a>.</p>
+
+    <!-- Botão Matricular -->
+    <a href="pagematricula.html" class="link">Matricule-se</a>
+  </div>
+</body>
+</html
